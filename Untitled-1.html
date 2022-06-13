@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const getRand = max => Math.floor(Math.random() * (max+1))
+
+        const getCir = ()=>{
+            const cir = document.createElement('div')
+            cir.style.position='absolute'
+            cir.style.opacity=1
+            cir.style.borderRadius='50%'
+            cir.style.top=getRand(document.body.offsetHeight)+'px'
+            cir.style.left=getRand(document.body.offsetWidth)+'px'
+            cir.style.height=cir.style.width=getRand(100)+'px'
+            setInterval(()=>{cir.style.backgroundColor='rgb('+getRand(256)+','+getRand(256)+','+getRand(256)+')';cir.style.opacity=parseInt(cir.style.opacity,10)-0.1},500);
+            // setInterval(()=>cir.style.opacity=parseInt(cir.style.opacity,10)-.1,100)
+            document.body.appendChild(cir)
+            return cir
+        }
+        setInterval(()=>{
+            const item = getCir()
+        },100)
+    </script>
+</body>
+</html>
